@@ -2,6 +2,15 @@ from bs4 import BeautifulSoup
 import requests
 import io, json
 
+""" 1.get all pages """
+last_page = 100
+respond_url = ""
+if respond_url is not "404":
+    last_page += 100
+else:
+    last_page -= 1
+
+
 url = ("http://www.alsautopa.com/vehiclelist.php?SortOrder=1&SortDirection=DESC&VehicleType=C")
 r = requests.get(url)
 soup = BeautifulSoup(r.text)
